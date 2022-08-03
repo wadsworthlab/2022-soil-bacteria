@@ -8,6 +8,9 @@ java -classpath ~/Desktop/software/Trimmomatic-0.39/trimmomatic-0.39.jar org.usa
 #Library quality FastQC v.0.11.9: ./fastqc
 #Assembly stats QUAST online tool: http://cab.cc.spbu.ru/quast/
 
+#Read length
+awk 'NR%4==2{sum+=length($0)}END{print sum/(NR/4)}' input.fastq
+
 #Annotation was completed using the GenBank’s Prokaryotic Genome Assembly Pipeline v5.2: https://www.ncbi.nlm.nih.gov/genbank/genomesubmit/
 
 #Repeat for all genomes/species
