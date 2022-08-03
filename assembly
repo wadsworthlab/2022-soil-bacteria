@@ -1,0 +1,13 @@
+#Genome Assembly 
+cp ~/Desktop/software/Trimmomatic-0.39/adapters/NexteraPE-PE.fa ./
+
+java -classpath ~/Desktop/software/Trimmomatic-0.39/trimmomatic-0.39.jar org.usadellab.trimmomatic.TrimmomaticPE -phred33 -trimlog trim.txt ./WAM06_S19_L001_R1_001.fastq ./WAM06_S19_L001_R2_001.fastq ./WAM06_S19_L001_R1_001-clean.fastq ./WAM06_S19_L001_R1_001-unpaired.fastq ./WAM06_S19_L001_R2_001-clean.fastq ./WAM06_S19_L001_R2_001-unpaired.fastq ILLUMINACLIP:NexteraPE-PE.fa:2:30:10 LEADING:3 TRAILING:3 
+
+~/Desktop/software/SPAdes-3.14.1-Darwin/bin/spades.py -1 ~/Desktop/2022-MRA/Genomes/WAM06_S19_L001_R1_001-clean.fastq  -2 ~/Desktop/2022-MRA/Genomes/WAM06_S19_L001_R2_001-clean.fastq -o ~/Desktop/2022-MRA/Genomes/assemblyWAM06clean
+
+#Library quality FastQC v.0.11.9: ./fastqc
+#Assembly stats QUAST online tool: http://cab.cc.spbu.ru/quast/
+
+#Annotation was completed using the GenBank’s Prokaryotic Genome Assembly Pipeline v5.2: https://www.ncbi.nlm.nih.gov/genbank/genomesubmit/
+
+#Repeat for all genomes/species
